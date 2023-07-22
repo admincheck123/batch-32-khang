@@ -11,7 +11,7 @@ function Likes(props) {
   );
 }
 
-export default Likebtn;
+export default Likes;
 
 const BtnLike = ({ name }) => {
   const [activeLike, setActiveLike] = useState(false);
