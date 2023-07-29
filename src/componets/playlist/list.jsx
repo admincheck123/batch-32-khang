@@ -3,6 +3,7 @@ import React from 'react';
 import './playList.css';
 
 function List({ listMusic, onSelectMusic, selectedId }) {
+
   return (
     <div className="music-space">
       <div className="music-list">
@@ -10,6 +11,7 @@ function List({ listMusic, onSelectMusic, selectedId }) {
 
         <div className="play-list">
           {
+            
             listMusic && listMusic.length > 0 ?
             listMusic.map((music, index) => {
               return (
@@ -30,7 +32,7 @@ function List({ listMusic, onSelectMusic, selectedId }) {
           
                   <span className="music-name text-strong">{music.name}</span>
                 </button>
-          
+                
                 <span className="play-author">{music.artist}</span>
           
                 <span className="timer">3:22</span>
