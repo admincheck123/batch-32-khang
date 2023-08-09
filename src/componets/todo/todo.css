@@ -1,0 +1,43 @@
+.input-add {
+    display: flex;
+}
+
+.btn-add {
+    width          : 40px;
+    height         : 38px;
+    border-radius  : 4px;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-left    : 10px;
+    border         : 1px solid #4ee2e2;
+}
+
+.spinner-border {
+    width : 14px;
+    height: 14px;
+}
+
+/* .btn {
+    width : 40px;
+    height: 38px;
+} */
+
+.btn-action {
+    width : 150px;
+    height: 40px;
+
+}
+
+.input-check {
+    display        : flex;
+    width          : 40px;
+    height         : 38px;
+    justify-content: center;
+    border         : 1px solid #ccc;
+    border-radius  : 4px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}

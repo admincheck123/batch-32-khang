@@ -1,38 +1,37 @@
+import Loading from 'componets/loading';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getProductsAction } from 'store/product/action';
 
 function ProductList(props) {
-  const [products, setProduct] = useState([]);
+  const dispatch = useDispatch();
 
-  const getData = async () => {
-    try {
-      const response = await axios('https://batch-293-0-nodejs.onrender.c   om/user/products');
-
-      setProduct(response.data.payload)
-    } catch (error) {
-      console.log('««««« error »»»»»', error);
-    }
-  };
+  const isLoading = useSelector((state) => state.productReducer.isLoading);
+  const products = useSelector((state) => state.productReducer.products);
 
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getProductsAction());
+  }, [dispatch]);
 
   return (
     <ul>
-      {
-        products.length > 0 ? (
-          products.map((item) => (
+      {isLoading ? (
+        <Loading />
+      ) : products.length > 0 ? (
+        products.map((item) => {
+          return (
             <>
-            <li key={item.id}>
-              <span>{item.name}: </span>
-              <span>{item.price}đ</span>
-            </li>
-            
+              <li key={item.id}>
+                <span>{item.name}: </span>
+                <span>{item.price}đ</span>
+              </li>
             </>
-          ))
-        ) : <p>Không có sản phẩm</p>
-      }
+          );
+        })
+      ) : (
+        <p>Không có sản phẩm</p>
+      )}
     </ul>
   );
 }
